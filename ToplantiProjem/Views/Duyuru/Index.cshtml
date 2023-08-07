@@ -1,0 +1,69 @@
+﻿@model List<Duyuru>
+
+@if (TempData["basarili"] != null)
+{
+    <h2 style="color:red">@TempData["basarili"]</h2>
+}
+<div class="container">
+    <div class="row pt-3 pb-4"
+        <div>
+                <h1>Toplantı</h1>
+        </div>
+    <table class="table table-bordered">
+        <thead>
+           <tr>
+            <th>
+                 Id
+            </th>
+             <th>
+                 ToplantiAdi
+             </th>
+             <th>
+                 Baslangic
+             </th>
+             <th>
+                 Bitis
+             </th>
+              <th>
+                 Aciklama
+             </th>
+              <th>
+                 Toplanti Türü
+             </th>
+             <th></th>
+             <th></th>
+           </tr>  
+       </thead>
+        
+      <tbody>
+            @foreach (var duyuru in Model)
+         {
+             <tr>
+                     <td>@duyuru.Id</td>
+                     <td>@duyuru.ToplantiAdi</td>
+                     <td>@duyuru.Baslangic</td>
+                     <td>@duyuru.Bitis</td>
+                     <td>@duyuru.Aciklama</td>
+                     <td>@duyuru.Toplanti.Ad</td>
+
+                 <td>
+                         <a asp-controller="Duyuru" asp-action="EkleGuncelle" asp-route-id="@duyuru.Id" type="button" class="btn btn-primary" style="width:150px">Güncelle</a>
+                 </td>
+                 <td>
+                             <a asp-controller="Duyuru" asp-action="Sil" asp-route-id="@duyuru.Id" type="button" class="btn btn-danger" style="width:150px">Sil</a>
+                 </td>
+             </tr>
+         }
+     </tbody>
+
+
+      </table>
+      <div class="row pt-3 pb-2">
+          <div>
+              <a asp-controller="Duyuru" asp-action="EkleGuncelle" class="btn btn-lg btn-primary" typeof="button">
+                  Yeni Toplanti Oluştur
+              </a>
+
+          </div>
+      </div>
+  </div>

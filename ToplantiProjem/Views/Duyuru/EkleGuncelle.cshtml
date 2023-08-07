@@ -1,0 +1,88 @@
+﻿@model Duyuru
+
+
+<form method="post" enctype="multipart/form-data">
+    <input asp-for="Dokuman"hidden />
+    <div class="border p-3 mt-5">
+    <div class="row">
+        <div class="col-10">
+                <div class="row pb-3">
+                    <h2 class="text-primary">@(Model == null ? "Toplanti Ekle" : "Güncelle")</h2>
+                    </hr>
+                </div>
+
+                <div class="mn-3">
+                    <label asp-for="ToplantiAdi" class="p-0"></label>
+                    <input asp-for="ToplantiAdi" class="form-control" />
+                    <span asp-validation-for="ToplantiAdi" class="text-danger"></span>
+                </div>
+
+                <div class="mn-3">
+                    <label asp-for="Baslangic" class="p-0"></label>
+                    <input asp-for="Baslangic" class="form-control" />
+                    <span asp-validation-for="Baslangic" class="text-danger"></span>
+                </div>
+
+                <div class="mn-3">
+                    <label asp-for="Bitis" class="p-0"></label>
+                    <input asp-for="Bitis" class="form-control" />
+                    <span asp-validation-for="Bitis" class="text-danger"></span>
+                </div>
+
+                <div class="mn-3">
+                    <label asp-for="ToplantiTuruId" class="p-0"></label>
+                    <select asp-for="ToplantiTuruId" asp-items="ViewBag.ToplantiList" class="form-select">
+                    </select>
+                </div>
+
+                <div class="mn-3">
+                    <label asp-for="Aciklama" class="p-0"></label>
+                    <input asp-for="Aciklama" class="form-control" />
+                    <span asp-validation-for="Aciklama" class="text-danger"></span>
+                </div>
+
+                <div class="mn-3">
+                    <label asp-for="Dokuman" class="p-0"></label>
+                    <input type="file" name="file" class="form-control" />
+
+                </div>
+
+                @if (Model != null)
+                {
+                    <button type="submit" class="btn btn-lg btn-primary" style="width:250px">Guncelle</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-lg btn-primary" style="width:250px">Toplantı Ekle</button>
+                }
+                <a asp-controller="Duyuru" asp-action="Index" class="btn btn-lg btn-primary" style="width:250px">
+                    Geri Dön
+                </a>
+
+            </div>
+        </div>
+
+        <div class="col-2">
+            @if (Model != null)
+            {
+                <img src="@Model.Dokuman" width="%100"
+                style="border-radious:7px; border:1px solid #bbb9b9"/>
+            }
+        </div>
+
+
+    </div>
+
+
+
+        
+
+
+
+
+
+
+
+
+</form>
+

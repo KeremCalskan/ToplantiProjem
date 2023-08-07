@@ -1,0 +1,52 @@
+﻿@model List<Toplanti>
+
+@if (TempData["basarili"] != null)
+{
+    <h2 style="color:red">@TempData["basarili"]</h2>
+}
+<div class="container">
+    <div class="row pt-3 pb-4"
+        <div>
+                <h1>Toplantı Türleri</h1>
+        </div>
+    <table class="table table-bordered">
+        <thead>
+           <tr>
+            <th>
+                 Id
+            </th>
+             <th>
+                    Toplantı Türü
+             </th>
+             <th></th>
+             <th></th>
+           </tr>  
+       </thead>
+        
+      <tbody>
+            @foreach (var toplantiTuru in Model)
+         {
+             <tr>
+                 <td>@toplantiTuru.Id</td>
+                 <td>@toplantiTuru.Ad</td>
+                 <td>
+                     <a asp-controller="Toplanti" asp-action="Guncelle" asp-route-id="@toplantiTuru.Id" type="button" class="btn btn-primary" style="width:150px">Güncelle</a>
+                 </td>
+                 <td>
+                         <a asp-controller="Toplanti" asp-action="Sil" asp-route-id="@toplantiTuru.Id" type="button" class="btn btn-danger" style="width:150px">Sil</a>
+                 </td>
+             </tr>
+         }
+     </tbody>
+
+
+      </table>
+      <div class="row pt-3 pb-2">
+          <div>
+              <a asp-controller="Toplanti" asp-action="Ekle" class="btn btn-lg btn-primary" typeof="button">
+                  Yeni Toplanti Türü Oluştur
+              </a>
+
+          </div>
+      </div>
+  </div>

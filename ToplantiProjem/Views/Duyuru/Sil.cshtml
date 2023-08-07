@@ -1,0 +1,52 @@
+﻿@model Duyuru
+
+
+
+<form method="post">
+    <input asp-for="Id" hidden />
+    <div class="border p-3 mt-5">
+        <div class="row pb-3">
+            <h2 class="text-primary" Toplantı Sil></h2>
+            </hr>
+        </div>
+       
+        <div class="mn-3">
+            <label asp-for="ToplantiAdi" class="p-0"></label>
+            <input asp-for="ToplantiAdi" disabled class="form-control" />
+           
+        </div>
+
+        <div class="mn-3">
+            <label asp-for="Baslangic" class="p-0"></label>
+            <input asp-for="Baslangic" disabled class="form-control" />
+           
+        </div>
+
+        <div class="mn-3">
+            <label asp-for="Bitis" class="p-0"></label>
+            <input asp-for="Bitis" disabled class="form-control" />
+           
+        </div>
+
+        <div class="mn-3">
+            <label asp-for="Aciklama" class="p-0"></label>
+            <input asp-for="Aciklama" disabled class="form-control" />
+           
+        </div>
+
+        <button type="submit" class="btn btn-lg btn-primary" style="width:250px">Toplantı Sil</button>
+        <a asp-controller="Duyuru" asp-action="Index" class="btn btn-lg btn-primary" style="width:250px">
+            Geri Dön
+        </a>
+
+    </div>
+
+
+
+
+
+
+
+
+</form>
+
